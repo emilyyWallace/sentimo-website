@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Sentimo</title>
+    <meta name="description" content="Get in touch with the Sentimo team">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 30%, #48cae4 60%, #06ffa5 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #feca57;
+        }
+        
+        .main-content {
+            background: white;
+            margin-top: 100px;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #48cae4, #06ffa5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(72, 202, 228, 0.3);
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(254, 202, 87, 0.05) 50%, rgba(72, 202, 228, 0.05) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(72, 202, 228, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .contact-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .contact-item-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #48cae4, #06ffa5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .contact-item-content {
+            text-align: left;
+        }
+        
+        .contact-item-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .contact-item-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .contact-item-content a {
+            color: #48cae4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item-content a:hover {
+            color: #06ffa5;
+        }
+        
+        .about-section {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(254, 202, 87, 0.05) 50%, rgba(72, 202, 228, 0.05) 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .about-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .about-section h2:before {
+            content: "👋";
+            font-size: 1.2rem;
+        }
+        
+        .about-section p {
+            line-height: 1.7;
+            color: #666;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ff6b6b;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+                margin-top: 80px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Sentimo</a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <div class="main-content">
+            <div class="page-header">
+                <div class="contact-icon">✉️</div>
+                <h1>Contact</h1>
+                <p>Get in touch with the Sentimo team</p>
+            </div>
+            
+            <div class="contact-card">
+                <h2>Let's Connect</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📧</div>
+                        <div class="contact-item-content">
+                            <h3>Email</h3>
+                            <p><a href="mailto:emily.wallace@hey.com">emily.wallace@hey.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h2>About the Developer</h2>
+                <p>Hi! I'm Emily Wallace, the creator of Sentimo. I'm passionate about building tools that help people understand and improve their emotional well-being. Sentimo was born from a desire to create a simple, private, and beautiful way to track mood patterns over time.</p>
+                <br>
+                <p>I believe that mental health tools should be accessible, private, and empowering. That's why Sentimo keeps all your data on your device and focuses on helping you discover your own patterns rather than telling you what to feel.</p>
+                <br>
+                <p>I'd love to hear from you! Whether you have feedback, questions, or just want to share your experience with Sentimo, please don't hesitate to reach out.</p>
+            </div>
+            
+            <div class="about-section">
+                <h2>What to Expect</h2>
+                <p>When you reach out, you can expect:</p>
+                <br>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #48cae4; font-weight: bold;">•</span>
+                        A personal response from Emily
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #48cae4; font-weight: bold;">•</span>
+                        Thoughtful consideration of your feedback
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #48cae4; font-weight: bold;">•</span>
+                        Help with any questions about the app
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #48cae4; font-weight: bold;">•</span>
+                        A response within 24-48 hours
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>Made with ❤️ for emotional wellness</p>
+        </div>
+    </footer>
+</body>
+</html>
